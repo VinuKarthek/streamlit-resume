@@ -7,7 +7,6 @@ st.set_page_config(
      layout="wide",
      initial_sidebar_state="auto",
      menu_items={
-         'Demo Link': 'https://portfolio-vinukarthek.streamlit.app/',
          'Report a bug': 'https://github.com/VinuKarthek/streamlit-resume/issues',
          'About': "Simple *Streamlit Based Resume App*\n Rev 1.0.0"
          }
