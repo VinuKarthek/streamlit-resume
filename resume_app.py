@@ -1,6 +1,18 @@
 import streamlit as st
 from PIL import Image
 
+st.set_page_config(
+     page_title="Vinu Karthek - Profile",
+     # page_icon= Image.open("icon.png"), #':shark:',
+     layout="wide",
+     initial_sidebar_state="auto",
+     menu_items={
+         'Demo Link': 'https://portfolio-vinukarthek.streamlit.app/',
+         'Report a bug': 'https://github.com/VinuKarthek/streamlit-resume/issues',
+         'About': "Simple *Streamlit Based Resume App*\n Rev 1.0.0"
+         }
+     )
+
 with open("style.css") as f:
     st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
 
@@ -49,7 +61,7 @@ st.markdown("""
         <a class="nav-link" href="#work-experience">Work Experience</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#bioinformatics-tools">Bioinformatics Tools</a>
+        <a class="nav-link" href="#skills">Skills</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#social-media">Social Media</a>
@@ -97,23 +109,43 @@ st.markdown('''
 ## Work Experience
 ''')
 
-txt('**Staff Engineer (Data Science)**, Infineon, Singapore',
+txt('**Staff Data Scientist**, Infineon, Singapore',
 '2021-2023')
 st.markdown('''
-- Developed Data extraction & Analysis scripts for Automated Lot-on-hold Analysis (~100 lots/hour)
-- Developmed several ML/AI models for aiding the analysis (ie Wafer Map Classification, Rule Optimization etc) & deployed them using FastAPI to Openshift Cloud machinesPost-Silicon& Tableau
-- Developed several Streamlit dashboards to help multiple user label images
+- Develop & deploy scalable AI/ML models leveraging **DVC/MLFlow/Optuna** for Model Development & **Docker/K8S/Git** CICD Pipelines for Deployement
+  - Models like Wafer-map Image Classification (**ResNet-50**), FrontEnd Falure Prediction (**xgBoost**), Rule Optimization(**RUSBoost**) for aiding Lot on Hold Analysis. Resulted in sustainalbe savings of **110k€/year**
+  - Deployment was done using FastAPI/Streamlit on Openshift PaaS in K8S PODs. Utilized GitHub Actions & webhooks for CI/CD. The performance of the model monitored using Tableau Dashboards
+  - Hands-on experience with TensorFlow, SciKit Learn and Keras libraries to develop Deep-NN, GAN, SVM, Regression, Clustering & Random Forest Classifiers/Regressors
+- Developed Data extraction & Analysis scripts for Automated Lot-on-hold Analysis (**100+ lots/hour over 6 sites across the globe**) using **MS-SQL,R & UiPath RPA**
+- Working on developing product catalog search/query tool using **LangChain+ llama2 LLM**
 ''')
 
 txt('**Sr SoC Validation Engineer**, Qualcomm, Singapore',
 '2017-2021')
 st.markdown('''
-- Post-Silicon Validation of Mixed-Signal IPs on State of the art Mobile, Modem (5FF) & RF(14nm) SoCs  
+- Post-Silicon Validation of Mixed-Signal IPs on State of the art Mobile, Modem (5FF) & RF(14nm) SoCs
+- Expert in Statistical Data analysis & visualization of production test data using Python, NI-Optimal Plus, Spotfire(Exensio) & Tableau
+- Experienced in applying Machine Learning models like Regression, Clustering, xGBoost & random forest for data interpretation using Keras
+- Development of end to end test automation framework for PVT char using LabVIEW & Python Framework
 - Design & Development of High-Speed (>15Gbps) System Level Test Platform for Validation of 5G (Sub6/mm Wave) RF transceivers
-- Development of end to end test automation solution for PVT char using LabVIEW & Python Framework
-- Experienced in applying Machine Learning models like Regression, Clustering, xGBoost & random forest for data interpretation using Tensorflow/Keras
-- Expert in Statistical Data analysis & visualization of production test data using Python, Spotfire & Tableau
 - Managed a team of 5 engineers handling Characterizing for multiple Mixed-Signal IPs in the SoC
+''')
+
+txt('**Research Student (Machine Learning)**, ST Eng & NTU Corps Lab,Singapore',
+'2016-2017')
+st.markdown('''
+- Developed python UI for annotating features on airplane door images (viz door, door handle, window etc) , facilitating precise labelling for subsequent analysis
+- Employed deep learning techniques (CNN using tensorflow1.0) for object detection, utilizing annotated data to identify and locate features on airplane doors with 95% accuracy
+- Using the detected features Validating & the laser distance sensor, developed a complex scoring algorithm to confirm if the robot base is facing the airplane door
+- Control the robotic base carrying the camera, laser sensor and aero-bridge depending on the control signals obtained, thus achieving a perfect docking (using Robotic Operating System)
+''')
+
+txt('**Engineering Intern**, Qualcomm, Singapore',
+'2016 - 2017')
+st.markdown('''
+- Developed a generic Python automation for post-processing & filtering huge test data (up to 5 GB) using Pandas/Vaex
+- Robotic handler automation for multi DUT testing using LabVIEW
+- Designed an AAF with Low pass-band attenuation & steep roll-off for a custom digitizer(using Keysight ADS Tool)
 ''')
 
 #####################
@@ -125,7 +157,7 @@ txt('**M.Sc. in Computer Control & Automation**, NTU, Singapore',
 '2016-2017')
 st.markdown('''
 - GPA: `3.7`
-- Research thesis entitled `Automated passenger boarding bridge`
+- Research Thesis Title: `Automated passenger boarding bridge`
 ''')
 
 txt('**B.E. in Electronics & Comm Engineering**, Anna University, Chennai',
@@ -133,54 +165,49 @@ txt('**B.E. in Electronics & Comm Engineering**, Anna University, Chennai',
 st.markdown('''
 - GPA: `8.9`
 - Graduated with First Class Distinction.
+- Thesis Title: `Real Time Flood Alert System Using GSM`
 ''')
-
-#####################
-st.markdown('''
-## Projects
-''')
-txt4('Mortality Prediction for Liver Cirrhosis Patients', 'A web server for the discovery of acetyl- and butyryl-cholinesterase inhibitors', 'http://codes.bio/abcpred/')
-txt4('', 'An automated data mining software based on Weka', 'http://www.mt.mahidol.ac.th/autoweka/')
-txt4('ACPred', 'A computational tool for the prediction and analysis of anticancer peptides','http://codes.bio/acpred/')
-txt4('BioCurator', 'A web server for curating ChEMBL bioactivity data', 'http://codes.bio/biocurator/')
-txt4('CryoProtect', 'A web server for classifying antifreeze proteins from non-antifreeze proteins','http://codes.bio/cryoprotect/')
-txt4('ERpred', 'A web server for the prediction of subtype-specific estrogen receptor antagonists', 'http://codes.bio/erpred')
-txt4('HCVpred', 'A web server for predicting the bioactivity of Hepatitis C virus NS5B inhibitors', 'http://codes.bio/hemopred/')
-txt4('HemoPred', 'A web server for predicting the hemolytic activity of peptides', 'http://codes.bio/hemopred/')
-txt4('iQSP', 'A sequence-based tool for the prediction and analysis of quorum sensing peptides', 'http://codes.bio/iqsp/')
-txt4('Meta-iAVP', 'A sequence-based meta-predictor for improving the prediction of antiviral peptides', 'http://codes.bio/meta-iavp/')
-txt4('osFP', 'A web server for predicting the oligomeric state of fluorescent proteins', 'http://codes.bio/osfp/')
-txt4('PAAP', 'A web server for predicting antihypertensive activity of peptides', 'http://codes.bio/paap/')
-txt4('PepBio', 'A web server for predicting the bioactivity of host defense peptide', 'http://codes.bio/pepbio')
-txt4('PyBact', 'Open source software written in Python for bacterial identification', 'https://sourceforge.net/projects/pybact/')
-txt4('TargetAntiAngio', 'A sequence-based tool for the prediction and analysis of anti-angiogenic peptides','http://codes.bio/targetantiangio/')
-txt4('ThalPred', 'Development of decision model for discriminating Thalassemia trait and Iron deficiency anemia','http://codes.bio/thalpred/')
-txt4('THPep', 'A web server for predicting tumor homing peptides','http://codes.bio/thpep/')
-
 
 #####################
 st.markdown('''
 ## Skills
 ''')
-txt3('Programming', '`Python`, `R`, `LabVIEW`')
-txt3('Data processing/wrangling', '`SQL`, `pandas`, `numpy`')
-txt3('Data visualization', '`matplotlib`, `seaborn`, `plotly`, `altair`, `ggplot2`')
-txt3('Machine Learning', '`scikit-learn`')
+txt3('Programming', '`Python`, `R`, `LabVIEW`, `Embedded C++`, `Verilog`')
+txt3('Databases', '`MSSQL`, `MySQL`, `MongoDB`, `FAISS/Chroma DB`')
+txt3('Data visualization', '`Tableau`, `Spotfire`, `seaborn, matplot, ggplot2`')
+txt3('Machine Learning', '`scikit-learn`,`keras`,`pytorch`,`xgboost/rusboost`')
 txt3('Deep Learning', '`TensorFlow`')
-txt3('Web development', '`Flask`, `HTML`, `CSS`')
-txt3('Model deployment', '`streamlit`, `gradio`, `R Shiny`, `Heroku`, `AWS`, `Digital Ocean`')
+txt3('Web Development', '`Django`, `HTML`, `CSS`')
+txt3('Model Pipelines', '`Docker`, `Kubernetes`, `Gitlab`, `MLFlow`, `DVC`, `Apache Airflow`')
+txt3('Model Deployment', '`streamlit`, `FastAPI`, `Heroku`, `AWS`, `Openshift`')
+
+#####################
+st.markdown('''
+## Projects
+# ''')
+# txt4('Mortality Prediction for Liver Cirrhosis Patients', 'A web server for the discovery of acetyl- and butyryl-cholinesterase inhibitors', 'http://codes.bio/abcpred/')
+# txt4('', 'An automated data mining software based on Weka', 'http://www.mt.mahidol.ac.th/autoweka/')
+# txt4('ACPred', 'A computational tool for the prediction and analysis of anticancer peptides','http://codes.bio/acpred/')
+# txt4('BioCurator', 'A web server for curating ChEMBL bioactivity data', 'http://codes.bio/biocurator/')
+# txt4('CryoProtect', 'A web server for classifying antifreeze proteins from non-antifreeze proteins','http://codes.bio/cryoprotect/')
+# txt4('ERpred', 'A web server for the prediction of subtype-specific estrogen receptor antagonists', 'http://codes.bio/erpred')
+# txt4('HCVpred', 'A web server for predicting the bioactivity of Hepatitis C virus NS5B inhibitors', 'http://codes.bio/hemopred/')
+# txt4('HemoPred', 'A web server for predicting the hemolytic activity of peptides', 'http://codes.bio/hemopred/')
+# txt4('iQSP', 'A sequence-based tool for the prediction and analysis of quorum sensing peptides', 'http://codes.bio/iqsp/')
+# txt4('Meta-iAVP', 'A sequence-based meta-predictor for improving the prediction of antiviral peptides', 'http://codes.bio/meta-iavp/')
+# txt4('osFP', 'A web server for predicting the oligomeric state of fluorescent proteins', 'http://codes.bio/osfp/')
+# txt4('PAAP', 'A web server for predicting antihypertensive activity of peptides', 'http://codes.bio/paap/')
+# txt4('PepBio', 'A web server for predicting the bioactivity of host defense peptide', 'http://codes.bio/pepbio')
+# txt4('PyBact', 'Open source software written in Python for bacterial identification', 'https://sourceforge.net/projects/pybact/')
+# txt4('TargetAntiAngio', 'A sequence-based tool for the prediction and analysis of anti-angiogenic peptides','http://codes.bio/targetantiangio/')
+# txt4('ThalPred', 'Development of decision model for discriminating Thalassemia trait and Iron deficiency anemia','http://codes.bio/thalpred/')
+# txt4('THPep', 'A web server for predicting tumor homing peptides','http://codes.bio/thpep/')
 
 #####################
 st.markdown('''
 ## Social Media
 ''')
-txt2('LinkedIn', 'https://www.linkedin.com/in/chanin-nantasenamat')
-txt2('Twitter', 'https://twitter.com/thedataprof')
-txt2('GitHub', 'https://github.com/chaninn/')
-txt2('', 'https://github.com/chaninlab/')
-txt2('', 'https://github.com/dataprofessor')
-txt2('ORCID', 'http://orcid.org/0000-0003-1040-663X')
-txt2('Scopus', 'http://www.scopus.com/authid/detail.url?authorId=12039071300')
-txt2('ResearcherID', 'http://www.researcherid.com/rid/F-1021-2010')
-txt2('ResearchGate', 'https://www.researchgate.net/profile/Chanin_Nantasenamat')
-txt2('Publons', 'https://publons.com/a/303133/')
+txt2('LinkedIn', 'https://www.linkedin.com/in/vinukarthek')
+txt2('Twitter', 'https://twitter.com/vinukarthek')
+txt2('GitHub', 'https://github.com/vinukarthek/')
+txt2('Portfolio', 'https://portfolio.vinukarthek.com/')
